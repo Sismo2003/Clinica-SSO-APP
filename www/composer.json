@@ -1,0 +1,15 @@
+{
+    "require": {
+        "mpdf/mpdf": "^8.2"
+    },
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Alexis Ortiz",
+            "email": "alexis.ortiz6646@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "version": "1.0.2"
+
+}

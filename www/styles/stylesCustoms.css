@@ -1,0 +1,61 @@
+#navbar-logoPNG{
+    display: inline-block;
+    vertical-align: middle;
+    width: 70px;
+}
+#navbar-logoPNG img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.MainTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 3%;
+    color: #cccccc;
+}
+.subTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #cccccc;
+}
+.mainForm{
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-bottom: 15%;
+}
+.Table{
+    display: table;
+}
+.row{
+    display: table-row;
+}
+.cell{
+    display: table-cell;
+}
+#cellEdad{
+    grid-column: span 2;
+    display: grid;
+}
+
+.tableDatosCols, .tableFiles,.tableDrcells,.tableGineObs{
+    width: 10%;
+}
+.pacientcell{
+    width: 10%;
+}
+.pacientcells{
+    width: 2%;
+}
+legend{
+    text-align: center;
+    padding-top: 4%;
+}
+.logo{
+    width: 10%;
+    display: flex;
+    margin-left: 45%;
+}
+

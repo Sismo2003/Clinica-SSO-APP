@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clinica SSO - REPORTE COLPOSCOPICO  </title>
+        <script src="../JS/jquery-3.3.1.min.js"></script>
+        <script src="../JS/cleanSpaces.js"></script>
+
+        <link rel="stylesheet" href="../styles/bootstrap.min.css">
+        <link rel="stylesheet" href="../styles/stylesCustoms.css">
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html" >
+                    Clinica SSO
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a onclick="getData();return false" class="nav-link">PDF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="cleanInputs();return false">Restaurar campos</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <H1 class="MainTitle">REPORTE  COLPOSCOPICO </H1>
+        <h4 class="subTitle">SSO Salud Sexual Oportuna</h4>
+        <img class="logo" src="../img/logo.png">
+        
+        
+        
+        <form class="mainForm" name="mainForm" enctype="multipart/form-data">
+            <fieldset>
+                <legend>DATOS GENERALES</legend>
+                <div class="Table">
+                    <div class="row" >
+                        <div class="cell pacientcell">
+                            <div class="form-group">
+                                <label class="form-label mt-4">PACIENTE</label>
+                                <input type="text" class="form-control" id="inputName" name="name"  autocomplete="off" placeholder="Nombre del Paciente">
+                            </div>
+                        </div>
+                        <div class="cell pacientcell">
+                            <div class="form-group">
+                                <label for="dateOfStudiesLabel" class="form-label mt-4">FECHA DE ESTUDIOS</label>
+                                <input type="date" class="form-control" id="dateOfStudiesEntry" name="dateStudies" >
+                            </div>
+                        </div>
+                        <div class="cell pacientcells">
+                            <div class="form-group">
+                                <label for="folioLabel" class="form-label mt-4">FOLIO</label>
+                                <input class="form-control" id="FolioEntry" disabled="" placeholder="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" >
+                        <div class="cell pacientcell ">
+                            <div class="form-group">
+                                <label for="medicToreferencies" class="form-label mt-4">MEDICO A QUIEN VA DIRIJIDO EL ESTUDIO</label>
+                                <input type="text" class="form-control" id="MedicToStudies" name="medicTo" placeholder="Nombre del medico" >
+                            </div>
+                        </div>
+                        <div class="cell pacientcell">
+                            <div class="form-group" id="cellEdad">
+                                <label for="ageLabels" class="form-label mt-4">EDAD</label>
+                                <input type="number" class="form-control" id="ageinput" name="age" placeholder="Edad" min="0" max="110" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <legend>DATOS GINECO OBSTÉTRICOS </legend>
+                <div class="Table">
+                    <div class="row">
+                        <div class="cell tableGineObs">
+                            <div class="form-group">
+                                <label for="pregnanciesLabel" class="form-label mt-4">EMBARAZOS</label>
+                                <input type="number" class="form-control" id="pregnanciesEntry" name="pregnancies" value="0" min="0" max="20" >
+                            </div>
+                        </div>
+                        <div class="cell tableGineObs">
+                            <div class="form-group">
+                                <label for="birthsLabel" class="form-label mt-4">PARTOS</label>
+                                <input type="number" class="form-control" id="birthsEntry" name="births" value="0" >
+                            </div>
+                        </div>
+                        <div class="cell tableGineObs">
+                            <div class="form-group">
+                                <label for="abortionsLabel" class="form-label mt-4">ABORTOS</label>
+                                <input type="number" class="form-control" id="abortionsEntry" name="abortions" value="0" max="50" min="0" >
+                            </div>
+                        </div>
+                        <div class="cell tableGineObs">
+                            <div class="form-group">
+                                <label for="cSectionLabel" class="form-label mt-4">CESÁRIAS</label>
+                                <input type="number" class="form-control" id="cSectionEntry" name="cSection" value="0" max="50" min="0" >
+                            </div>
+                        </div>
+                        <div class="cell tableGineObs">
+                            <div class="form-group">
+                                <label for="fumLabel" class="form-label mt-4">FUM</label>
+                                <input type="date" class="form-control" id="fumEntry" name="fum" placeholder="" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <legend>DATOS COLPOSCOPICOS </legend>
+
+                <div class="Table">
+                    <div class="row">
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="cervicLabel" class="form-label mt-4">CERVIX</label>
+                                <select class="form-select" id="cervixEntry" name="cervix">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="EUTROFICO">EUTROFICO</option>
+                                    <option value="HIPERTROFICO">HIPERTROFICO</option>
+                                    <option value="ATROFICO">ATROFICO</option>
+                                    <option value="CUPULIZADO">CUPULIZADO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="patronVascularLabel" class="form-label mt-4">PATRON VASCULAR (ARAGONÉS)</label>
+                                <select class="form-select" id="patronVascularEntry" name="patronVascular">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="TIPO I NORMAL: FINA RED CAPILAR (ARBORIFORME)">TIPO I NORMAL: FINA RED CAPILAR (ARBORIFORME)</option>
+                                    <option value="TIPO II AUMENTADO: AUMENTO DE LA RED NORMAL IMAGEN VASCULAR DE COLPITIS">TIPO II AUMENTADO: AUMENTO DE LA RED NORMAL IMAGEN VASCULAR DE COLPITIS</option>
+                                    <option value="TIPO III ECTÁSICO: VASOS DILATADOS DISTRIBUCIÓN NORMAL">TIPO III ECTÁSICO: VASOS DILATADOS DISTRIBUCIÓN NORMAL</option>
+                                    <option value="TIPO IV IRREGULAR: HORQUILLAS, SACACORCHOS. CAMBIOS BRUSCOS DE DIRECCION">TIPO IV IRREGULAR: HORQUILLAS, SACACORCHOS. CAMBIOS BRUSCOS DE DIRECCION</option>
+                                    <option value="TIPO V ATÍPICO: DILATACIONES Y ESTENOSIS INTERRUPCIONES BRUSCAS">TIPO V ATÍPICO: DILATACIONES Y ESTENOSIS INTERRUPCIONES BRUSCAS</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="zonaDeTransformacionLabel" class="form-label mt-4">ZONA DE TRANSFORMACIÓN</label>
+                                <select class="form-select" id="ZonaDeTransformacionEntry" name="zonaDeTransformacion">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="TIPO I EXOCERVICAL">TIPO I EXOCERVICAL</option>
+                                    <option value="TIPO II ELEMENTOS DE LA ZT QUE SE INTRODUCEN A CANAL ENDOCERVICAL">TIPO II ELEMENTOS DE LA ZT QUE SE INTRODUCEN A CANAL ENDOCERVICAL</option>
+                                    <option value="Tipo III ELEMENTOS DE LA ZT QUE SE INTRODUCEN COMPLETAMENTE EN CANAL ENDOCERVICAL">Tipo III ELEMENTOS DE LA ZT QUE SE INTRODUCEN COMPLETAMENTE EN CANAL ENDOCERVICAL</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="UnionEscamocilindricaLabel" class="form-label mt-4">UNION ESCAMOCILINDRICA</label>
+                                <select CLASS="form-select" id="UnionEscamocilindricaEntry" name="unionEscamocilindrica">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="VISIBLE">VISIBLE</option>
+                                    <option value="PARCIALMENTE VISIBLE">PARCIALMENTE VISIBLE</option>
+                                    <option value="NO VISIBLE">NO VISIBLE</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="epitelioEscamosoLabel" class="form-label mt-4">EPITELIO ESCAMOSO</label>
+                                <select CLASS="form-select" id="epitelioEscamosoEntry" name="epitelioEscamoso">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="MADURO">MADURO</option>
+                                    <option value="ATRÓFICO">ATRÓFICO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="epitelioCilindricoLabel" class="form-label mt-4">EPITELIO CILINDRICO</label>
+                                <select CLASS="form-select" id="epitelioCilindricoEntry" name="epitelioCilindrico">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="CON ECTOPIA">CON ECTOPIA</option>
+                                    <option value="SIN ECTOPIA">SIN ECTOPIA</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="testDeHinselmanLabel" class="form-label mt-4">TEST DE HINSELMAN (ACETICO)</label>
+                                <select CLASS="form-select" id="testDeHinselmanEntry" name="testHinselman">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="POSITIVO">POSITIVO</option>
+                                    <option value="NEGATIVO">NEGATIVO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="testdeSchillerLabel" class="form-label mt-4">TEST DE SCHILLER</label>
+                                <select CLASS="form-select" id="testdeSchillerEntry" name="testSchiller">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="POSITIVO">POSITIVO</option>
+                                    <option value="NEGATIVO">NEGATIVO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="colposcopiaLabel" class="form-label mt-4">COLPOSCOPIA</label>
+                                <select CLASS="form-select" id="colposcopiaEntry" name="colscopia">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="ADECUADA">ADECUADA</option>
+                                    <option value="NO ADECUADA">NO ADECUADA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="cell tableDatosCols">
+                            <div class="form-group">
+                                <label for="DiagnostiColposcopiaLabel" class="form-label mt-4">DIAGNOSTICO COLPOSCOPICO</label>
+                                <select CLASS="form-select" id="diagnostiCocolsEntry" name="diagnosticoCols">
+                                    <option value="SELECCIONA">SELECCIONA</option>
+                                    <option value="SIN ALTERACIONES INFLAMATORIAS">SIN ALTERACIONES INFLAMATORIAS</option>
+                                    <option value="SIN ALTERACIONES">SIN ALTERACIONES</option>
+                                    <option value="LESIÓN GRADO I">LESIÓN GRADO I</option>
+                                    <option value="LESÍON GRADO II">LESÍON GRADO II</option>
+                                    <option value="LESIÓN SUGESTIVA DE INVASIÓN">LESIÓN SUGESTIVA DE INVASIÓN</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="vulvaYvaginaLabel" class="form-label mt-4">VULVA Y VAGINA</label>
+                    <textarea class="form-control" id="vulvaYvaginaEntry" rows="5" name="vulvaYvagina" placeholder="• SIN ALTERACIONES
+• Morfología de la lesión (por ejemplo, mácula, pápula, parche, nódulo, úlcera, tumor, placa, vesícula, bulla, pústula, quiste).
+Tamaño y forma de las lesiones individuales.
+Borde claramente demarcado o mal definido.
+Número, localización y distribución de lesiones múltiples (por ejemplo, dispersas, agrupadas, lineales, etc.).
+Color.
+Consistencia y sensación (textura, grosor, dura/suave/firme/fluctuante).
+Presencia de cambios secundarios (excoriación, liquenificación, edema, escama, costra, fisura, erosión,
+hipopigmentacSión/hiperpigmentación,atrofia,cicatriz).
+• Inflamación aguda edema, eritema)."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="hallazgosColposcopicosLabel" class="form-label mt-4">HALLAZGOS COLPOSCOPICOS ANORMALES</label>
+                    <textarea class="form-control" name="hallazgosCols" id="hallazgosColposcopicosEntry" rows="5" placeholder="Ubicación de la lesión: dentro o fuera de la zona de Transformación, ubicacion de la lesión según las agujas
+del reloj. Tamaño de la lesión Número de cuadrantes del cuello uterino que cubre la lesión, tamaño de la lesión en porcentajes del cuello uterino.
+Grado 1 (Menor) Epitelio acetoblanco delgado. Borde irregular Mosaico fino, Puntillado fino
+Grado 2 (Mayor) Epitelio acetoblanco denso, Aparición rápida de epitelio acetoblanco. Orificios glandulares
+abieros con bordes engrosados. Mosaico grueso, Puntillado grueso. Bordes de limitados, Signo del límite del borde interno, Signo adicionales: Vasos delgados, superficie irregular,lesión
+Zona de Transformación congénita, Condiloma, Pólipo (exocervical/endocervical) inflamación,
+EstenosisAnomalía congénita, Anomalías post tratamiento, Endometriosis.
+
+"></textarea>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="comYplanLabel" class="form-label mt-4">COMENTARIOS Y PLAN TERAPEUTICO</label>
+                    <textarea class="form-control" name="comYplan" id="comyplanEntry" rows="5" placeholder="SE OTORGA PLAN TERAPEUTICO A BASE DE ........ PARA CERVICOVAGINITIS
+TERAPIA DE REEMPLAZO HORMONAL...... ETC.
+SE TOMA BIOPSIA SIN COMPLICACIONES, EN ESPERA DE RESULTADOS PARA
+NORMAR CONDUCTA A SEGUIR. RECABAR RESULTADOS DE CITOLOGÍA EN UN MES.
+"></textarea></div>
+
+
+
+
+                <div class="Table">
+                    <div class="row">
+                        <div class="cell tableDrcells">
+                            <div class="form-group">
+                                <label for="drLabel" class="form-label mt-4">DR (A)</label>
+                                <input type="text" class="form-control" name="dr" id="drEntry" value="Alan Ariel Ortiz Ceceña"  >
+                            </div>
+                        </div>
+                        <div class="cell tableDrcells ">
+                            <div class="form-group">
+                                <label for="cedProfLabel" class="form-label mt-4">CED. PROF</label>
+                                <input type="text" class="form-control" name="cedProf" id="cedProfEntry" value="12124020"  >
+                            </div>
+                        </div>
+                        <div class="cell tableDrcells">
+                            <div class="form-group">
+                                <label for="signatureLabel" class="form-label mt-4">FIRMA</label>
+                                <input type="text" class="form-control" id="signatureEntry" disabled="" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <legend>EVIDENCIAS</legend>
+                <div class="Table">
+                    <div class="row">
+                        <div class="cell tableFiles">
+                            <div class="form-group">
+                                <label for="formFile" class="form-label mt-4">Imagen 1</label>
+                                <input class="form-control" type="file" id="formFile1" name="formFile1">
+                            </div>
+                        </div>
+                        <div class="cell tableFiles ">
+                            <div class="form-group">
+                                <label for="formFile" class="form-label mt-4">Imagen 2</label>
+                                <input class="form-control" type="file" id="formFile2" name="image2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="cell tableFiles">
+                            <div class="form-group">
+                                <label for="formFile" class="form-label mt-4">Imagen 3</label>
+                                <input class="form-control" type="file" id="formFile3" name="image3">
+                            </div>
+                        </div>
+                        <div class="cell tableFiles ">
+                            <div class="form-group">
+                                <label for="formFile" class="form-label mt-4">Imagen 4</label>
+                                <input class="form-control" type="file" id="formFile4" name="image4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <br><br><br>
+            <button type="button" class="btn btn-primary" onclick="getData();return false;" target="_blank" >Generar PDF</button>
+        </form>
+    </body>
+    <script>
+
+        function getData(){
+            var name = $('#inputName').val();
+            var dateofStudies = $('#dateOfStudiesEntry').val();
+            var folio = $('#FolioEntry').val();
+            var medicto = $('#MedicToStudies').val();
+            var age = $('#ageinput').val();
+            var pregnancies = $('#pregnanciesEntry').val();
+            var births = $('#birthsEntry').val();
+            var abortions = $('#abortionsEntry').val();
+            var cSection = $('#cSectionEntry').val();
+            var fum = $('#fumEntry').val();
+            var cervix = $('#cervixEntry option:selected').val();
+            var patronVascular = $('#patronVascularEntry option:selected').val();
+            var zonaDeTransformacion = $('#ZonaDeTransformacionEntry option:selected').val();
+            var unionEscamocilindrica = $('#UnionEscamocilindricaEntry option:selected').val();
+            var epitelioEscamoso = $('#epitelioEscamosoEntry option:selected').val();
+            var epitelioCilindrico = $('#epitelioCilindricoEntry option:selected').val();
+            var testHinselman = $('#testDeHinselmanEntry option:selected').val();
+            var testSchiller = $('#testdeSchillerEntry option:selected').val();
+            var colscopia = $('#colposcopiaEntry option:selected').val();
+            var diagnosticoCols = $('#diagnostiCocolsEntry option:selected').val();
+            var vulvaYvagina = $('#vulvaYvaginaEntry').val();
+            var hallazgosColsp = $('#hallazgosColposcopicosEntry').val();
+            var comyplan = $('#comyplanEntry').val();
+            var dr = $('#drEntry').val();
+            var cedProf = $('#cedProfEntry').val();
+            var image1 = $('#formFile1').val();
+            var image2 = $('#formFile2').val();
+            var image3 = $('#formFile3').val();
+            var image4 = $('#formFile4').val();
+            if(name.length <= 1 || dateofStudies.length <= 1|| medicto.length <= 1 || age.length == 0 || pregnancies.length == 0 ||
+                births.length == 0 || abortions.length == 0 || cSection.length == 0 || fum.length == 0 || cervix == "SELECCIONA" ||
+                patronVascular == "SELECCIONA" || zonaDeTransformacion == "SELECCIONA" || unionEscamocilindrica == "SELECCIONA" ||
+                epitelioCilindrico == "SELECCIONA" || testHinselman == "SELECCIONA" ||testSchiller== "SELECCIONA" || colscopia== "SELECCIONA"
+                || diagnosticoCols == "SELECCIONA" || dr.length <=1 || cedProf.length <=1){
+                alert("Faltan campos en el documento.");
+            }
+            else{
+                document.mainForm.method = 'POST';
+                document.mainForm.action = 'mpdfCreator.php';
+                document.mainForm.submit();
+            }
+        }
+    </script>
+</html>
