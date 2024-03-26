@@ -26,57 +26,44 @@
     $comYplan = $_REQUEST['comYplan'];
     $dr = $_REQUEST['dr'];
     $cedProf = $_REQUEST['cedProf'];
+    $folio = 0;
 
-    $image1_name = $_FILES['formFile1']['name'];
-    $image1_tmp = $_FILES['formFile1']['tmp_name'];
-    $image1_md5_finalName = md5($image1_tmp);
-    $image1_type = explode('.',$image1_name);
-    $image1_path = '../pacientPhotos/' . $image1_md5_finalName . '.' . $image1_type[1];
-    //move_uploaded_file($image1_tmp,$image1_path);
+    if($_FILES['formFile1']['name']){
+        $image1_name = $_FILES['formFile1']['name'];
+        $image1_tmp = $_FILES['formFile1']['tmp_name'];
+        $image1_md5_finalName = md5($image1_tmp);
+        $image1_type = explode('.',$image1_name);
+        $image1_path = '../pacientPhotos/' . $image1_md5_finalName . '.' . $image1_type[1];
+        //move_uploaded_file($image1_tmp,$image1_path);
+    }
+    if($_FILES['image2']['name']){
+        $image2_name = $_FILES['image2']['name'];
+        $image2_tmp = $_FILES['image2']['tmp_name'];
+        $image2_md5_finalName = md5($image2_tmp);
+        $image2_type = explode('.',$image2_name);
+        $image2_path = '../pacientPhotos/' . $image2_md5_finalName . '.' . $image2_type[1];
+        //move_uploaded_file($image2_tmp,$image2_path);
+    
+    }
 
+    if($_FILES['image3']['name']){
+        $image3_name = $_FILES['image3']['name'];
+        $image3_tmp = $_FILES['image3']['tmp_name'];
+        $image3_md5_finalName = md5($image3_tmp);
+        $image3_type = explode('.',$image3_name);
+        $image3_path = '../pacientPhotos/' . $image3_md5_finalName . '.' . $image3_type[1];
+        //move_uploaded_file($image3_tmp,$image3_path);
+    }
 
+    if($_FILES['image4']['name']){
+        $image4_name = $_FILES['image4']['name'];
+        $image4_tmp = $_FILES['image4']['tmp_name'];
+        $image4_md5_finalName = md5($image4_tmp);
+        $image4_type = explode('.',$image4_name);
+        $image4_path = '../pacientPhotos/' . $image4_md5_finalName . '.' . $image4_type[1];
+        //move_uploaded_file($image4_tmp,$image4_path);
+    }
 
-
-    $image2_name = $_FILES['image2']['name'];
-    $image2_tmp = $_FILES['image2']['tmp_name'];
-    $image2_md5_finalName = md5($image2_tmp);
-    $image2_type = explode('.',$image2_name);
-    $image2_path = '../pacientPhotos/' . $image2_md5_finalName . '.' . $image2_type[1];
-    //move_uploaded_file($image2_tmp,$image2_path);
-
-    $image3_name = $_FILES['image3']['name'];
-    $image3_tmp = $_FILES['image3']['tmp_name'];
-    $image3_md5_finalName = md5($image3_tmp);
-    $image3_type = explode('.',$image3_name);
-    $image3_path = '../pacientPhotos/' . $image3_md5_finalName . '.' . $image3_type[1];
-    //move_uploaded_file($image3_tmp,$image3_path);
-
-    $image4_name = $_FILES['image4']['name'];
-    $image4_tmp = $_FILES['image4']['tmp_name'];
-    $image4_md5_finalName = md5($image4_tmp);
-    $image4_type = explode('.',$image4_name);
-    $image4_path = '../pacientPhotos/' . $image4_md5_finalName . '.' . $image4_type[1];
-    //move_uploaded_file($image4_tmp,$image4_path);
-
-   /* $json_objet_db = array(
-        "name" => $name,
-        "date-of-studies" => $dateStudies,
-        //"folio" => $folio,
-        "medic-to" => $medicTo,
-        "age" => $age,
-        "pregnancies" => $pregnancies,
-        "births" => $births,
-        "abortions" => $abortions,
-        "c-section" =>$cSection,
-        "fum" => $fum,
-        "cervix" => $cervix,
-        "patron-vascular" => $patronVascular,
-        "zona-de-transformacion" =>$zonaDeTransformacion,
-        "union-escamocilindrica"=>$unionEscamocilindrica,
-        "epitelio-cilindrico"=>$epitelioCilindrico,
-        "epitelio-"
-
-    )*/
 
 
 
@@ -246,25 +233,51 @@
             <tr>
                 <td style="border: #1a1d20 solid 3px; width: 50%;height: 400px; " colspan="1" ><p class="textG">'.$diagnosticoCols.'</p></td>
                 <td style="border: #1a1d20 solid 3px; width: 50%;height: 250px; " colspan="1" ><p class="textG"> '.$comYplan.' </p></td>
-            </tr>
-            
-            <tr>
-                <td style="border: #1a1d20 solid 3px; border-bottom: none; border-right: none" colspan="1" > 
-                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image1_tmp.'">
-                 </td>
-                <td  style="border: #1a1d20 solid 3px; border-left: none;border-bottom: none" colspan="1" >
+            </tr>     
+            ');
+    $mpdf->WriteHTML('<tr>');
+    if ($_FILES['formFile1']['name']){
+        $mpdf->WriteHTML('
+            <td style="border: #1a1d20 solid 3px; border-bottom: none; border-right: none" colspan="1" > 
+            <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image1_tmp.'">
+            </td>
+        ');
+    }else if($_FILES['formFile1']['name'] || $_FILES['image2']['name']){
+        $mpdf->WriteHTML('<td style="border: #1a1d20 solid 3px; border-bottom: none; border-right: none" colspan="1" ></td>');
+    }
+    if($_FILES['image2']['name']){
+        $mpdf->WriteHTML('
+            <td  style="border: #1a1d20 solid 3px; border-left: none;border-bottom: none" colspan="1" >
                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image2_tmp.'">
-                </td>
-            </tr>
-            <tr>
-                <td style="border: #1a1d20 solid 3px; border-top: none; border-right: none" colspan="1" > 
-                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image3_tmp.'">
-                 </td>
-                <td  style="border: #1a1d20 solid 3px; border-left: none;border-top: none" colspan="1" >
+            </td>
+        ');
+    }else if($_FILES['formFile1']['name'] || $_FILES['image2']['name']){
+        $mpdf->WriteHTML('<td  style="border: #1a1d20 solid 3px; border-left: none;border-bottom: none" colspan="1" ></td>');
+    }
+    $mpdf->WriteHTML('</tr>');
+    $mpdf->WriteHTML('<tr>');
+    if($_FILES['image3']['name']){
+        $mpdf->WriteHTML('
+            <td style="border: #1a1d20 solid 3px; border-top: none; border-right: none" colspan="1" > 
+                <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image3_tmp.'">
+            </td>        
+        ');
+    }else if($_FILES['image4']['name'] || $_FILES['image3']['name']){
+        $mpdf->WriteHTML('<td style="border: #1a1d20 solid 3px; border-top: none; border-right: none" colspan="1" ></td>');
+    }
+
+    if($_FILES['image4']['name']){
+        $mpdf->WriteHTML('
+            <td  style="border: #1a1d20 solid 3px; border-left: none;border-top: none" colspan="1" >
                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image4_tmp.'">
-                </td>
+            </td>
+        ');
+    }else if($_FILES['image4']['name'] || $_FILES['image3']['name']){
+        $mpdf->WriteHTML('<td  style="border: #1a1d20 solid 3px; border-left: none;border-top: none" colspan="1" ></td>');
+    }
+    
+    $mpdf->WriteHTML('
             </tr>
-   
    
             <tr>
                 <td class="tableHeaders" style="border: #1a1d20 solid 3px;" colspan="1" ><h1>CEDULA PROFECISIONAL</h1></td>
