@@ -381,18 +381,18 @@ NORMAR CONDUCTA A SEGUIR. RECABAR RESULTADOS DE CITOLOGÍA EN UN MES.
             var image2 = $('#formFile2').val();
             var image3 = $('#formFile3').val();
             var image4 = $('#formFile4').val();
-            if(name.length <= 1 || dateofStudies.length <= 1|| medicto.length <= 1 || age.length == 0 || pregnancies.length == 0 ||
+            /*if(name.length <= 1 || dateofStudies.length <= 1|| medicto.length <= 1 || age.length == 0 || pregnancies.length == 0 ||
                 births.length == 0 || abortions.length == 0 || cSection.length == 0 || fum.length == 0 || cervix == "SELECCIONA" ||
                 patronVascular == "SELECCIONA" || zonaDeTransformacion == "SELECCIONA" || unionEscamocilindrica == "SELECCIONA" ||
                 epitelioCilindrico == "SELECCIONA" || testHinselman == "SELECCIONA" ||testSchiller== "SELECCIONA" || colscopia== "SELECCIONA"
                 || diagnosticoCols == "SELECCIONA" || dr.length <=1 || cedProf.length <=1){
                 alert("Faltan campos en el documento.");
             }
-            else{
+            else{*/
                 document.mainForm.method = 'POST';
                 document.mainForm.action = 'mpdfCreator.php';
                 document.mainForm.submit();
-            }
+            //}
         }
     </script>
 </html>

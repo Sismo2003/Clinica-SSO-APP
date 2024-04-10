@@ -28,7 +28,7 @@
     $cedProf = $_REQUEST['cedProf'];
     $folio = 0;
 
-    if($_FILES['formFile1']['name']){
+    if(isset($_FILES['formFile1']['name'])){
         $image1_name = $_FILES['formFile1']['name'];
         $image1_tmp = $_FILES['formFile1']['tmp_name'];
         $image1_md5_finalName = md5($image1_tmp);
@@ -36,7 +36,7 @@
         $image1_path = '../pacientPhotos/' . $image1_md5_finalName . '.' . $image1_type[1];
         //move_uploaded_file($image1_tmp,$image1_path);
     }
-    if($_FILES['image2']['name']){
+    if(isset($_FILES['image2']['name'])){
         $image2_name = $_FILES['image2']['name'];
         $image2_tmp = $_FILES['image2']['tmp_name'];
         $image2_md5_finalName = md5($image2_tmp);
@@ -46,7 +46,7 @@
     
     }
 
-    if($_FILES['image3']['name']){
+    if(isset($_FILES['image3']['name'])){
         $image3_name = $_FILES['image3']['name'];
         $image3_tmp = $_FILES['image3']['tmp_name'];
         $image3_md5_finalName = md5($image3_tmp);
@@ -55,7 +55,7 @@
         //move_uploaded_file($image3_tmp,$image3_path);
     }
 
-    if($_FILES['image4']['name']){
+    if(isset($_FILES['image4']['name'])){
         $image4_name = $_FILES['image4']['name'];
         $image4_tmp = $_FILES['image4']['tmp_name'];
         $image4_md5_finalName = md5($image4_tmp);
