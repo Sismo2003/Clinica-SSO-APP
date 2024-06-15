@@ -1,25 +1,18 @@
-FROM php:8.2-apache
-RUN apt-get update
-RUN apt-get -y install git
-RUN docker-php-source extract \
-        # do important things \
-        && docker-php-source delete
+FROM php:8.0.0-apache
+ARG DEBIAN_FRONTEND=noninteractive
+RUN docker-php-ext-install mysqli
+# Include alternative DB driver
+# RUN docker-php-ext-install pdo
+# RUN docker-php-ext-install pdo_mysql
+RUN apt-get update \
+    && apt-get install -y sendmail libpng-dev \
+    && apt-get install -y libzip-dev \
+    && apt-get install -y zlib1g-dev \
+    && apt-get install -y libonig-dev \
+    && rm -rf /var/lib/apt/lists/* \
+    && docker-php-ext-install zip
 
-
-RUN apt-get update && apt-get install -y \
-    zip \
-    libzip-dev
-
-ENV LIBZIP_CFLAGS="-I/usr/include"
-ENV LIBZIP_LIBS="-L/usr/lib -lzip"
-
+RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install zip
-
-RUN curl -sSL https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions -o - | sh -s \
-gd xdebug
-
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-
-
-
+RUN docker-php-ext-install gd
+RUN a2enmod rewrite

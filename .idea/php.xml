@@ -10,6 +10,19 @@
     <option name="highlightLevel" value="WARNING" />
     <option name="transferred" value="true" />
   </component>
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="$PROJECT_DIR$/www/vendor/mpdf/psr-http-message-shim" />
+      <path value="$PROJECT_DIR$/www/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/www/vendor/composer" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/www/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/www/vendor/mpdf/psr-log-aware-trait" />
+      <path value="$PROJECT_DIR$/www/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/www/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/www/vendor/paragonie/random_compat" />
+    </include_path>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>

@@ -2,10 +2,10 @@
 
     require_once __DIR__ . '/../vendor/autoload.php';
     $name = $_REQUEST['name'];
-    $dateStudies = $_REQUEST['dateStudies'];
+    $age = $_REQUEST['age'];
     //$folio = $_REQUEST['folio'];
     $medicTo = $_REQUEST['medicTo'];
-    $age = $_REQUEST['age'];
+    $dateStudies = $_REQUEST['dateStudies'];
     $pregnancies = $_REQUEST['pregnancies'];
     $births = $_REQUEST['births'];
     $abortions = $_REQUEST['abortions'];
@@ -67,11 +67,11 @@
 
 
 
-    $logoPath = __DIR__ . '/../img/logoWhiteBG.png';
+    $logoPath = __DIR__ . '/resources/img/logoWhiteBG.png';
     $logoData = base64_encode(file_get_contents($logoPath));
     $logoSrc = 'data:image/png;base64,'.$logoData;
 
-    $sublogo = __DIR__ . '/../img/logo.png';
+    $sublogo = __DIR__ . '/resources/img/logo.png';
     $subdata = base64_encode(file_get_contents($sublogo));
     $sublogosrc = 'data:image/png;base64,'.$subdata;
 
@@ -236,43 +236,43 @@
             </tr>     
             ');
     $mpdf->WriteHTML('<tr>');
-    if ($_FILES['formFile1']['name']){
+    if (isset($_FILES['formFile1']['name'])){//$_FILES['formFile1']['name']
         $mpdf->WriteHTML('
             <td style="border: #1a1d20 solid 3px; border-bottom: none; border-right: none" colspan="1" > 
             <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image1_tmp.'">
             </td>
         ');
-    }else if($_FILES['formFile1']['name'] || $_FILES['image2']['name']){
+    }else if(isset($_FILES['formFile1']['name']) ||isset($_FILES['image2']['name'])){
         $mpdf->WriteHTML('<td style="border: #1a1d20 solid 3px; border-bottom: none; border-right: none" colspan="1" ></td>');
     }
-    if($_FILES['image2']['name']){
+    if(isset($_FILES['image2']['name'])){
         $mpdf->WriteHTML('
             <td  style="border: #1a1d20 solid 3px; border-left: none;border-bottom: none" colspan="1" >
                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image2_tmp.'">
             </td>
         ');
-    }else if($_FILES['formFile1']['name'] || $_FILES['image2']['name']){
+    }else if(isset($_FILES['formFile1']['name']) || isset($_FILES['image2']['name'])){
         $mpdf->WriteHTML('<td  style="border: #1a1d20 solid 3px; border-left: none;border-bottom: none" colspan="1" ></td>');
     }
     $mpdf->WriteHTML('</tr>');
     $mpdf->WriteHTML('<tr>');
-    if($_FILES['image3']['name']){
+    if(isset($_FILES['image3']['name'])){
         $mpdf->WriteHTML('
             <td style="border: #1a1d20 solid 3px; border-top: none; border-right: none" colspan="1" > 
                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image3_tmp.'">
             </td>        
         ');
-    }else if($_FILES['image4']['name'] || $_FILES['image3']['name']){
+    }else if(isset($_FILES['image4']['name']) ||isset($_FILES['image3']['name'])){
         $mpdf->WriteHTML('<td style="border: #1a1d20 solid 3px; border-top: none; border-right: none" colspan="1" ></td>');
     }
 
-    if($_FILES['image4']['name']){
+    if(isset($_FILES['image4']['name'])){
         $mpdf->WriteHTML('
             <td  style="border: #1a1d20 solid 3px; border-left: none;border-top: none" colspan="1" >
                 <img style="width: 600px; height: 500px; margin: 30px"  src="'.$image4_tmp.'">
             </td>
         ');
-    }else if($_FILES['image4']['name'] || $_FILES['image3']['name']){
+    }else if(isset($_FILES['image4']['name']) || isset($_FILES['image3']['name'])){
         $mpdf->WriteHTML('<td  style="border: #1a1d20 solid 3px; border-left: none;border-top: none" colspan="1" ></td>');
     }
     
@@ -303,7 +303,7 @@
     ');
 
 //$mpdf->Output("REPORTECOLPOSCOPICO.pdf", 'F');
-$mpdf->Output();
+$mpdf->Output('reporte-' .$folio. '.pdf',"I");
 
 // Enviar el contenido del PDF como respuesta al cliente
 //$file =  "REPORTECOLPOSCOPICO.pdf"; //file which in fact exists
