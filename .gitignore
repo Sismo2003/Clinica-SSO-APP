@@ -1,3 +1,4 @@
-.idea/*
-vendor
+
+/vendor
 web/services/db/con.php
+/.idea
