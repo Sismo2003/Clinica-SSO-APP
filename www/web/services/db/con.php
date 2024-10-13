@@ -1,8 +1,8 @@
 <?php
-define("HOST",'localhost'); // DataBase Ipv4
-define("BD",'ClinicaSSO'); // Table name
+define("HOST",'159.223.192.127'); // DataBase Ipv4
+define("BD",'clinicasso'); // Table name
 define("USER_BD",'root'); // Database Username
-define("PASS_BD",'');
+define("PASS_BD",'Tetis200');
 
 function connection(){
     $con = new mysqli(HOST,USER_BD,PASS_BD,BD);
