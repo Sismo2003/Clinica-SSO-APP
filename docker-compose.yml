@@ -5,7 +5,7 @@ services:
     ports:
       - "40:80"
     volumes:
-      - ./www:/var/www/html
+      - ./www/web:/var/www/html
     networks:
       - net-clinica-sso
 networks:

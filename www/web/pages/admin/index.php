@@ -1,0 +1,1 @@
+<h1 class="text-center">SOY el index</h1>
