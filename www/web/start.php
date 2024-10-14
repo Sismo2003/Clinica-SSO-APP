@@ -6,14 +6,15 @@
         <title>Clinica SSO- Salud Sexual Oportuna</title>
         <link href="resources/output.css" rel="stylesheet">
         <script src="resources/js/jquery-3.7.1.js"></script>
-        <script src="resources/js/jquery-3.7.1.min.map"></script>
+        <script src="resources/js/datatables.min.css"></script>
+        <script src="resources/js/datatables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     </head>
-    <body class="bg-slate-50">
-    <header class="z-12 w-full bg-blue-600 ">
-        <nav class="bg-slate-100 flex  w-full mt-1  px-5 p-1 lg:justify-between sm:place-items-center sm:gap-x-9  " aria-label="Global">
+    <body class="bg-slate-50 h-svh ">
+    <header class=" w-full fixed ">
+        <nav class="bg-slate-100 flex   w-full mt-1  px-5 p-1 lg:justify-between sm:place-items-center sm:gap-x-9  " aria-label="Global">
             <div class="flex">
                 <a onclick="loadContent('pages/admin/index.php');return false" class="-m-1.5 p-1.5">
                     <span class="sr-only">SSO</span>
@@ -21,17 +22,22 @@
                 </a>
             </div>
             <div class="hidden md:flex lg:flex lg:gap-x-5  md:gap-x-4  w-full justify-center  sm:gap-x-4 md:text-lg lg:text-lg ">
+
                 <a onclick="loadContent('pages/admin/colscopias/main.php');return false" target="_blank" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100
-                 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Colposcopia</a>
+                 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Colposcopias</a>
 
                 <a onclick="loadContent('404.php');return false"  class="py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
                 rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Pacientes</a>
 
-                <a onclick="loadContent('404.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
+                <a onclick="loadContent('pages/admin/medic/index.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
                 rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Medicos</a>
+
+                <a onclick="loadContent('404.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
+                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Calendario</a>
+
             </div>
             <div class="hidden lg:flex md:flex flex-1 justify-end lg:gap-x-4 md:gap-x-3 sm:gap-x-4 ">
-                <a href="" class="text-m font-semibold leading-6 text-gray-900">
+                <a href="index.html" class="text-m font-semibold leading-6 text-gray-900">
                     <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Log_Out"> <path id="Vector" d="M12 15L15 12M15 12L12 9M15 12H4M9 7.24859V7.2002C9 6.08009 9 5.51962 9.21799 5.0918C9.40973 4.71547 9.71547 4.40973 10.0918 4.21799C10.5196 4 11.0801 4 12.2002 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H12.1969C11.079 20 10.5192 20 10.0918 19.7822C9.71547 19.5905 9.40973 19.2839 9.21799 18.9076C9 18.4798 9 17.9201 9 16.8V16.75" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
                 </a>
             </div>
@@ -44,7 +50,6 @@
                 </button>
             </div>
         </nav>
-
         <!-- Mobile menu, show/hide based on menu open state. -->
         <div  class="lg:hidden md:hidden sm:hidden" id="openMenu"  role="dialog" aria-modal="false">
             <!-- Background backdrop, show/hide based on slide-over state. -->
@@ -97,10 +102,13 @@
         </div>
     </header>
 
-    <div class="w-auto h-[100px] pb-36">
+    <div class="">
+        <br><br><br><br>
+
         <div class="" id="MainContent">
 
         </div>
+        <br><br><br><br>
     </div>
 
 
@@ -113,4 +121,6 @@
     </body>
 </html>
 <script src="resources/js/app.js"></script>
+<script src="resources/js/colscospia.js"></script>
 <script src="resources/js/navToggle.js"></script>
+

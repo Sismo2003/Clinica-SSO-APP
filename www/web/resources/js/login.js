@@ -28,18 +28,16 @@ function sendForm() {
         type: "POST",
         data: formData,
         success: function(res) {
-            console.log(res);
-
             const ans = JSON.parse(res);
             if (ans[0] === 0) { // Si es un error
                 if (ans[1] == 'User not found') {
-                    alert('Usuario no encontrado');
+                    alert('Datos de usuario incorrectos!');
                 } else {
                     alert('Error durante la consulta: ' + ans[1]);
                 }
             }else{
+                window.location = 'start.php';
 
-                window.location.href = "main.php";
             }
         },
         error: function() {

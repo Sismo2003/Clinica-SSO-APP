@@ -1,18 +1,5 @@
 
-<body class="bg-slate-100">
-<header class="z-12 w-full bg-blue-600 ">
-  <nav class="bg-slate-100 flex  w-full mt-1  px-5 p-1 lg:justify-between sm:place-items-center sm:gap-x-9  " aria-label="Global">
-    <div class="hidden md:flex lg:flex lg:gap-x-5  md:gap-x-4  w-full justify-center  sm:gap-x-4 md:text-lg lg:text-lg ">
-      <a onclick="getData();return false;" target="_blank" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >PDF</a>
-      <a onclick="cleanInputs();return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Restaurar Campos</a>
-      <a href="#" class=" py-4 p-2 mb-2 leading-6 hover:bg-red-500 hover:text-white rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Base de Datos</a>
-      <a href="versiones/beta/old_version.html" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Versión anterior</a>
-    </div>
-  </nav>
-
-</header>
-
-
+<body class="bg-slate-100 m-10">
 <div class="flex justify-center  w-full" style="height: 80vh">
   <div class="md:w-4/5 sm:w-4/5 lg:9/12 bg-gray-100 shadow-lg p-4 rounded-lg divide-y divide-gray-500/10 overflow-y-scroll">
     <form name="mainForm" target="_blank" >
@@ -252,13 +239,20 @@ se toma biopsia sin complicaciones, en espera de resultados para normar conducta
           </div>
         </div>
       </div>
+        <div class="m-10 justify-end flex space-x-4">
+            <button onclick="cleanInputs();return false" class="bg-[#212936]
+            p-4 mb-2 leading-6  rounded-lg text-white font-semibold shadow-lg hover:bg-[#28A745]">Restaurar Campos</button>
+
+            <button onclick="getData();return false;" target="_blank" class="bg-[#212936]
+            p-4 mb-2 leading-6  rounded-lg text-white font-semibold shadow-lg hover:bg-[#28A745]">Generar PDF</button>
+
+
+        </div>
     </form>
   </div>
 </div>
-
-
-
 </body>
+
 
 
 
