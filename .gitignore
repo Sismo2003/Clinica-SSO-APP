@@ -2,3 +2,4 @@
 /vendor
 web/services/db/con.php
 /.idea
+.DS_Store

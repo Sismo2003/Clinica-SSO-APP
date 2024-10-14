@@ -9,7 +9,7 @@ function loadContent(url){
             $('#MainContent').html(data); // Insertar el contenido en el div
         },
         error: function(xhr, status, error) {
-            $('#MainContent').html('');
+            $('#MainContent').html(error);
             console.error('Error al cargar el archivo:', error);
         }
     });
