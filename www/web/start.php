@@ -18,7 +18,7 @@
             <div class="flex">
                 <a onclick="loadContent('pages/admin/index.php');return false" class="-m-1.5 p-1.5">
                     <span class="sr-only">SSO</span>
-                    <img class="w-32" src="resources/img/logoSSO.svg" alt="">
+                    <img class="w-32" src="sources/logos/logoSSO.svg" alt="">
                 </a>
             </div>
             <div class="hidden md:flex lg:flex lg:gap-x-5  md:gap-x-4  w-full justify-center  sm:gap-x-4 md:text-lg lg:text-lg ">
