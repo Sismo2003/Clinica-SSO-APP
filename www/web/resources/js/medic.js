@@ -46,19 +46,19 @@ var SubmitValues = {};
 var fiscalFormFlag = false;
 //carga de ocntenido al recargar la pagina o abrir el modal
 document.getElementById('pacient_content').style.display = 'flex';
-document.getElementById('contenedor_pacient_load_content').style.background = '#e5e7eb';
+document.getElementById('contenedor_pacient_load_content').style.background = '#74c8cc';
 
 // carga de contenido para Paciente
 document.getElementById('pacient_load_content').addEventListener('click', function() {
     // Borrar contenido para mostrar Paciente
     document.getElementById('address_content').style.display = 'none';
     document.getElementById('contenedor_address_load_content').style.background = 'none';
+    document.getElementById('contenedor_address_load_content').style.color = '#000000';
 
-    document.getElementById('appointment_content').style.display = 'none';
-    document.getElementById('contenedor_appointment_load_content').style.background = 'none';
 
     document.getElementById('pacient_content').style.display = 'flex';
-    document.getElementById('contenedor_pacient_load_content').style.background = '#e5e7eb';
+    document.getElementById('contenedor_pacient_load_content').style.background = '#74c8cc';
+    document.getElementById('contenedor_pacient_load_content').style.color = '#FFFFFF';
 });
 
 // Carga de contenido para el boton de Domicilio
@@ -66,31 +66,16 @@ document.getElementById('address_load_content').addEventListener('click', functi
     // borrar contenido para mostrar Domicilio
     document.getElementById('pacient_content').style.display = 'none';
     document.getElementById('contenedor_pacient_load_content').style.background = 'none';
+    document.getElementById('contenedor_pacient_load_content').style.color = '#000000';
 
 
-    // Setear el color del div no usado en blanco
-    document.getElementById('appointment_content').style.display = 'none';
-    document.getElementById('contenedor_appointment_load_content').style.background = 'none';
 
-    document.getElementById('contenedor_address_load_content').style.background = '#e5e7eb';
+    document.getElementById('contenedor_address_load_content').style.background = '#74c8cc';
     document.getElementById('address_content').style.display = 'flex';
+    document.getElementById('contenedor_address_load_content').style.color = '#FFFFFF';
 });
 
 // Carga de contenido del boton de consulta
-document.getElementById('appointment_load_content').addEventListener('click', function() {
-    // Campos de Paciente ocultos y con su color normal
-    document.getElementById('pacient_content').style.display = 'none';
-    document.getElementById('contenedor_pacient_load_content').style.background = 'none';
-
-    // Campos de domicilios ocultos y con su color normal
-    document.getElementById('address_content').style.display = 'none';
-    document.getElementById('contenedor_address_load_content').style.background = 'none';
-
-
-    //cambia los valores a su estado
-    document.getElementById('contenedor_appointment_load_content').style.background = '#e5e7eb';
-    document.getElementById('appointment_content').style.display = 'flex';
-});
 
 
 
