@@ -6,7 +6,7 @@ $(document).ready(function() {
         "pageLength" : 10,
         "lengthChange": false,
         "language": { // Personalizar el texto de la interfaz
-            "search": "Buscar:",
+            "search": "",
             "lengthMenu": "Mostrar _MENU_ filas",
             "infoEmpty": "No hay entradas disponibles",
             // "paginate": {
@@ -16,7 +16,20 @@ $(document).ready(function() {
             //     "previous": "Anterior"
             // }
         },
+        initComplete: function() {
+            $('.dt-search').addClass("flex justify-end m-3 p-3 ");
+            $('#dt-search-0').addClass("rounded-xl rounded-principal w-72");
+            $('#dt-search-0').attr('placeholder', 'Buscar...');
+            $('.dataTables_filter label').contents().filter(function() {
+                return this.nodeType === 3;
+            }).remove();
+
+            $('#dt-search-2').addClass("rounded-xl rounded-principal"); // input de datatables
+
+        }
     });
+
+
 
 });
 function openModal(id) {

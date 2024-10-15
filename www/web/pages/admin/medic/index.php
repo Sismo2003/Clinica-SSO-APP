@@ -12,24 +12,33 @@
     </div>
 
     <div>
-        <table  id="miTabla" class="display">
-            <thead>
-                <tr>
-                    <th class="border border-black px-5 py-2">Nombre</th>
-                    <th class="border border-black px-5 py-2" >Especialidad</th>
-                    <th class="border border-black px-5 py-2" >Detalles</th>
-                </tr>
+        <table  id="miTabla" class="display  ">
+            <thead class="">
+                    <tr class="text-gray-700">
+                        <th class=" p-2  bg-custom-gray rounded-tl-md rounded-bl-md">NOMBRE</th>
+                        <th class=" p-2  bg-custom-gray " >ESPECIALIDAD</th>
+                        <th class=" p-2  bg-custom-gray " >TELEFONO</th>
+                        <th class=" p-2  bg-custom-gray " >CORREO</th>
+                        <th class=" p-2  bg-custom-gray " >CEDULA PROFESIONAL</th>
+                        <th class=" p-2 bg-custom-gray  rounded-tr-md rounded-tr-md " >Detalles</th>
+                    </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="border border-black px-5 py-2" >Alan Ortiz</td>
-                    <td class="border border-black px-5 py-2" >Sexologó</td>
-                    <td class="border border-black px-5 py-2" >muchas</td>
+                <tr class="border-b-2 border-gray-200 text-center">
+                    <td class="p-5" >muchas</td>
+                    <td class="p-5" >Alan Ortiz</td>
+                    <td class="p-5" >Sexologó</td>
+                    <td class="p-5" >Sexologó</td>
+                    <td class="p-5" >Sexologó</td>
+                    <td class="p-5" >Sexologó</td>
                 </tr>
-                <tr>
-                    <td class="border border-black px-5 py-2" >Iker famosa</td>
-                    <td class="border border-black px-5 py-2" >ingeniera</td>
-                    <td class="border border-black px-5 py-2" >no hace nada</td>
+                <tr class="border-b-2 border-gray-200 text-center">
+                    <td class="p-5" >Iker famosa</td>
+                    <td class="p-5" >Iker famosa</td>
+                    <td class="p-5" >Iker famosa</td>
+                    <td class="p-5" >Iker famosa</td>
+                    <td class="p-5" >ingeniera</td>
+                    <td class="p-5" >no hace nada</td>
                 </tr>
             </tbody>
         </table>
@@ -191,5 +200,15 @@
     </div>
 </div>
 
-
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            initComplete: function() {
+                // Agregar clases de Tailwind al campo de búsqueda
+                $('.dataTables_filter input dt-search-0')
+                    .addClass('border-2 border-teal-500 rounded-md p-2 bg-gray-100 text-gray-800');
+            }
+        });
+    });
+</script>
 
