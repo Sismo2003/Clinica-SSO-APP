@@ -134,7 +134,7 @@
                             <div class="flex justify-center mt-1">
                                 <button onclick="abrirCamara();return false" class="border-2 border-[#74c8cc] text-gray-700 font-medium p-2 font-bold hover:bg-[#74c8cc] hover:text-white rounded-md shadow" id="openCamera" >Abrir Camara</button>
                                 <button onclick="preview_snapshot();return false" class="border-2 bg-red-500  hover:bg-red-400  font-medium px-4 py-2 text-white font-semibold  hidden rounded-md"  id="snapshot" >Capturar</button>
-                                <button onclick="retake_snapchot();return false" class="border-2  hover:bg-[#74c8cc]  bg-red-400 text-white font-medium px-4 py-2 text-white font-semibold  hidden rounded-md" id="retakeBtn" >Capturar de Nuevo</button>
+                                <button onclick="retake_snapshot();return false" class="border-2  hover:bg-[#74c8cc]  bg-red-400 text-white font-medium px-4 py-2 text-white font-semibold  hidden rounded-md" id="retakeBtn" >Capturar de Nuevo</button>
                             </div>
                             <div class="flex justify-end mt-1 mx-8">
                                     <button class=" bg-[#1f2430] rounded-md py-2 px-4 text-white font-semibold place-item-center hover:bg-white hover:shadow hover:text-gray-600 hover:border-[#74c8cc] hover:border-2 " onclick="">Siguiente</button>

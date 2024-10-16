@@ -5,4 +5,5 @@ web/services/db/con.php
 .DS_Store
 .DS_Store
 .idea/Clinica-SSO.iml
+.env
 www/web/pages/admin/medic/index_copy.php
