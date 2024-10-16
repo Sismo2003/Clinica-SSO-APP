@@ -16,7 +16,7 @@
     <header class=" w-full fixed ">
         <nav class="bg-slate-100 flex   w-full mt-1  px-5 p-1 lg:justify-between sm:place-items-center sm:gap-x-9  " aria-label="Global">
             <div class="flex">
-                <a onclick="loadContent('pages/admin/index.php');return false" class="-m-1.5 p-1.5">
+                <a onclick="loadContent('pages/admin/index.php');return false" class="-m-1.5 p-1.5 cursor-pointer">
                     <span class="sr-only">SSO</span>
                     <img class="w-32" src="sources/logos/logoSSO.svg" alt="">
                 </a>
@@ -24,16 +24,16 @@
             <div class="hidden md:flex lg:flex lg:gap-x-5  md:gap-x-4  w-full justify-center  sm:gap-x-4 md:text-lg lg:text-lg ">
 
                 <a onclick="loadContent('pages/admin/colscopias/main.php');return false" target="_blank" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100
-                 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Colposcopias</a>
+                 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Colposcopias</a>
 
                 <a onclick="loadContent('404.php');return false"  class="py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Pacientes</a>
+                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Pacientes</a>
 
                 <a onclick="loadContent('pages/admin/medic/index.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Medicos</a>
+                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Medicos</a>
 
                 <a onclick="loadContent('404.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600" >Calendario</a>
+                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Calendario</a>
 
             </div>
             <div class="hidden lg:flex md:flex flex-1 justify-end lg:gap-x-4 md:gap-x-3 sm:gap-x-4 ">
