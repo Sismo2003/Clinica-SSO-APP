@@ -1,4 +1,5 @@
 //Funcion para cargar contenido en el contendor principal
+var $ = require('jquery');
 function loadContent(url){
     $.ajax({
         url: url, // Ruta del archivo a cargar
@@ -16,7 +17,7 @@ function loadContent(url){
 }
 // carga de pagina web, siempre cargamos el index de admin
 document.addEventListener('DOMContentLoaded', function(){
-    loadContent('pages/admin/index.php');
+    loadContent('pages/admin/dashboard/index.php');
 })
 
 function openModal(id) {

@@ -1,3 +1,5 @@
+
+
 $(document).ready(function() {
     // Inicializa DataTables en la tabla con el ID "miTabla"
     $('#miTabla').DataTable({

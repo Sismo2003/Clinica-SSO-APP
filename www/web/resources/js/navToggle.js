@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('menuBtn').addEventListener('click', function() {
         $("#openMenu").css("display", "none");

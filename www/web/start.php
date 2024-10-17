@@ -5,117 +5,94 @@
         <meta charset="UTF-8">
         <title>Clinica SSO- Salud Sexual Oportuna</title>
         <link href="resources/output.css" rel="stylesheet">
-        <script src="resources/js/jquery-3.7.1.js"></script>
+        <link rel="icon" href="sources/logos/icono.ico" type="image/x-icon">
+        <script src="../../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../../node_modules/chart.js/dist/chart.umd.js"></script>
         <script src="resources/js/datatables.min.css"></script>
         <script src="resources/js/datatables.min.js"></script>
+
+        <script src="resources/js/dashboard.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
         <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
     </head>
-    <body class="bg-slate-50 h-svh ">
-    <header class=" w-full fixed ">
-        <nav class="bg-slate-100 flex   w-full mt-1  px-5 p-1 lg:justify-between sm:place-items-center sm:gap-x-9  " aria-label="Global">
-            <div class="flex">
-                <a onclick="loadContent('pages/admin/index.php');return false" class="-m-1.5 p-1.5 cursor-pointer">
-                    <span class="sr-only">SSO</span>
-                    <img class="w-32" src="sources/logos/logoSSO.svg" alt="">
-                </a>
-            </div>
-            <div class="hidden md:flex lg:flex lg:gap-x-5  md:gap-x-4  w-full justify-center  sm:gap-x-4 md:text-lg lg:text-lg ">
-
-                <a onclick="loadContent('pages/admin/colscopias/main.php');return false" target="_blank" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100
-                 hover:text-black rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Colposcopias</a>
-
-                <a onclick="loadContent('404.php');return false"  class="py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Pacientes</a>
-
-                <a onclick="loadContent('pages/admin/medic/index.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Medicos</a>
-
-                <a onclick="loadContent('404.php');return false" class=" py-4 p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black
-                rounded-lg text-blue-500 font-bold hoover:text-blue-500 text-gray-600 cursor-pointer" >Calendario</a>
-
-            </div>
-            <div class="hidden lg:flex md:flex flex-1 justify-end lg:gap-x-4 md:gap-x-3 sm:gap-x-4 ">
-                <a href="index.html" class="text-m font-semibold leading-6 text-gray-900">
-                    <svg class="h-10 w-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Log_Out"> <path id="Vector" d="M12 15L15 12M15 12L12 9M15 12H4M9 7.24859V7.2002C9 6.08009 9 5.51962 9.21799 5.0918C9.40973 4.71547 9.71547 4.40973 10.0918 4.21799C10.5196 4 11.0801 4 12.2002 4H16.8002C17.9203 4 18.4796 4 18.9074 4.21799C19.2837 4.40973 19.5905 4.71547 19.7822 5.0918C20 5.5192 20 6.07899 20 7.19691V16.8036C20 17.9215 20 18.4805 19.7822 18.9079C19.5905 19.2842 19.2837 19.5905 18.9074 19.7822C18.48 20 17.921 20 16.8031 20H12.1969C11.079 20 10.5192 20 10.0918 19.7822C9.71547 19.5905 9.40973 19.2839 9.21799 18.9076C9 18.4798 9 17.9201 9 16.8V16.75" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
-                </a>
-            </div>
-            <div class="sm:flex lg:hidden md:hidden flex-1 justify-end lg:gap-x-4 md:gap-x-3 sm:gap-x-4 ">
-                <button id="openMenuBtn" class="block lg:hidden md:hidden sm:flex p-2 text-gray-700">
-                    <span class="sr-only">Open menu</span>
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                    </svg>
-                </button>
-            </div>
-        </nav>
-        <!-- Mobile menu, show/hide based on menu open state. -->
-        <div  class="lg:hidden md:hidden sm:hidden" id="openMenu"  role="dialog" aria-modal="false">
-            <!-- Background backdrop, show/hide based on slide-over state. -->
-            <div class="fixed inset-0 z-10"></div>
-            <div id="menu" class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                <div class="flex items-center justify-between">
-                    <a href="#" class="-m-1.5 p-1.5">
+    <body class="bg-slate-100 ">
+    <div class="flex w-full h-full">
+        <header class="w-auto px-6 h-screen bg-slate-100 shadow-lg shadow-cyan-500/50 border-r-2 border-gray-200">
+            <nav class="flex flex-col gap-10 h-full " aria-label="Global">
+                <div class="flex w-full border-gray-200 border-b-2 ">
+                    <a onclick="loadContent('pages/admin/dashboard/index.php');return false" class="m-3 cursor-pointer">
                         <span class="sr-only">SSO</span>
-                        <img class=" w-40" src="resources/img/logoSSO.svg" alt="">
+                        <img class="w-40 " src="sources/logos/logoSSO.svg" alt="">
                     </a>
-                    <button id="menuBtn"  type="button" class=" rounded-md p-2.5 text-gray-700">
-                        <span class="sr-only">Close menu</span>
-                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                        </svg>
-                    </button>
                 </div>
-                <div   class="mt-6 flow-root" >
-                    <div class="-my-6 divide-y divide-gray-500/10">
-                        <div class="space-y-2 py-6">
-                            <a onclick="getData();return false;" target="_blank" class="row-cols-2 flex   p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hover:text-blue-500 text-gray-600">
-                                <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6 10H10.5C11.3284 10 12 9.32843 12 8.5V4" stroke="#000000" stroke-width="1.5"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.85355 3.73223C10.3224 3.26339 10.9583 3 11.6213 3H16.5C17.8807 3 19 4.11929 19 5.5V18.5C19 19.8807 17.8807 21 16.5 21H7.5C6.11929 21 5 19.8807 5 18.5V9.62132C5 8.95828 5.26339 8.3224 5.73223 7.85355L9.85355 3.73223ZM11.6213 5C11.4887 5 11.3615 5.05268 11.2678 5.14645L7.14645 9.26777C7.05268 9.36154 7 9.48871 7 9.62132V18.5C7 18.7761 7.22386 19 7.5 19H16.5C16.7761 19 17 18.7761 17 18.5V5.5C17 5.22386 16.7761 5 16.5 5H11.6213Z" fill="#000000"></path> <path d="M10 14.5H14M12 12.5V16.5" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                <p class="mx-2">
-                                    Generar PDF
-                                </p>
-                            </a>
-
-                            <a  onclick="cleanInputs();return false" class="row-cols-2 flex   p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hover:text-blue-500 text-gray-600 ">
-                                <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill="none" stroke="#000000" stroke-width="2" d="M10,4 C10,2.8954305 10.8954305,2 12,2 C13.1045695,2 14,2.8954305 14,4 L14,10 L20,10 L20,14 L4,14 L4,10 L10,10 L10,4 Z M4,14 L20,14 L20,22 L12,22 L4,22 L4,14 Z M16,22 L16,16.3646005 M8,22 L8,16.3646005 M12,22 L12,16.3646005"></path> </g></svg>
-                                <p class="mx-2">
-                                    Restaurar Campos
-                                </p>
-                            </a>
-                            <a href="#" class="row-cols-2 flex p-2  mb-2 leading-6 hover:bg-red-500  hover:text-white rounded-lg text-blue-500 font-bold hover:text-blue-500 text-gray-600">
-                                <svg width="30px"  height="30px" version="1.1" id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve"  fill="#FFFFFF"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:none;stroke:#000000;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} .st1{fill:none;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;} </style> <ellipse class="st0" cx="14" cy="8" rx="10" ry="5"></ellipse> <path class="st0" d="M30.8,21.2c-1.1,0.2-2,0-2.4-0.7c-0.4-0.7-0.1-1.7,0.6-2.5c-0.9-0.9-1.9-1.5-3.1-1.8c-0.3,1-1,1.8-1.8,1.8 s-1.5-0.7-1.8-1.8c-1.2,0.3-2.3,0.9-3.1,1.8c0.7,0.8,1,1.8,0.6,2.5c-0.4,0.7-1.4,0.9-2.4,0.7C17.1,21.8,17,22.4,17,23 s0.1,1.2,0.2,1.8c1.1-0.2,2,0,2.4,0.7c0.4,0.7,0.1,1.7-0.6,2.5c0.9,0.9,1.9,1.5,3.1,1.8c0.3-1,1-1.8,1.8-1.8s1.5,0.7,1.8,1.8 c1.2-0.3,2.3-0.9,3.1-1.8c-0.7-0.8-1-1.8-0.6-2.5c0.4-0.7,1.4-0.9,2.4-0.7c0.2-0.6,0.2-1.2,0.2-1.8S30.9,21.8,30.8,21.2z"></path> <g> <path d="M24,24c-0.1,0-0.3,0-0.4-0.1c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1-0.1-0.2-0.2-0.2-0.3c0-0.1-0.1-0.3-0.1-0.4 c0-0.1,0-0.3,0.1-0.4c0.1-0.1,0.1-0.2,0.2-0.3c0.4-0.4,1-0.4,1.4,0c0.1,0.1,0.2,0.2,0.2,0.3c0,0.1,0.1,0.3,0.1,0.4 c0,0.1,0,0.3-0.1,0.4c-0.1,0.1-0.1,0.2-0.2,0.3C24.5,23.9,24.3,24,24,24z"></path> </g> <path class="st0" d="M23.3,17.8c0.4-0.6,0.7-1.2,0.7-1.8V8"></path> <path class="st0" d="M4,8v8c0,2.8,4.5,5,10,5c2.1,0,4-0.3,5.6-0.9"></path> <path class="st0" d="M4,16v8c0,2.8,4.5,5,10,5c2,0,3.8-0.3,5.3-0.8"></path> </g></svg>
-                                <P CLASS="mx-2">
-                                    Base de Datos
-                                </P>
-                            </a>
-                            <a href="versiones/beta/old_version.html" class="row-cols-2 flex   p-2 mb-2 leading-6 hover:bg-gray-100 hover:text-black rounded-lg text-blue-500 font-bold hover:text-blue-500 text-gray-600">
-                                <svg style="height: 30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M15.0002 22.7483C14.7302 22.7483 14.4802 22.5983 14.3502 22.3683C14.2202 22.1283 14.2202 21.8483 14.3602 21.6083L15.4102 19.8583C15.6202 19.4983 16.0902 19.3883 16.4402 19.5983C16.8002 19.8083 16.9102 20.2683 16.7002 20.6283L16.4302 21.0783C19.1902 20.4283 21.2602 17.9483 21.2602 14.9883C21.2602 14.5783 21.6002 14.2383 22.0102 14.2383C22.4202 14.2383 22.7602 14.5783 22.7602 14.9883C22.7502 19.2683 19.2702 22.7483 15.0002 22.7483Z" fill="#292D32"></path> <path d="M2 9.75C1.59 9.75 1.25 9.41 1.25 9C1.25 4.73 4.73 1.25 9 1.25C9.27 1.25 9.52 1.4 9.65 1.63C9.78 1.87 9.78 2.15 9.64 2.39L8.59 4.14C8.38 4.49 7.92 4.61 7.56 4.39C7.21 4.18 7.09 3.72 7.31 3.36L7.58 2.91C4.81 3.56 2.75 6.04 2.75 9C2.75 9.41 2.41 9.75 2 9.75Z" fill="#292D32"></path> <path d="M14.8 12.6292V15.5692C14.8 18.0192 13.82 18.9992 11.37 18.9992H8.43C5.98 18.9992 5 18.0192 5 15.5692V12.6292C5 10.1792 5.98 9.19922 8.43 9.19922H11.37C13.82 9.19922 14.8 10.1792 14.8 12.6292Z" fill="#292D32"></path> <path d="M15.5709 5H12.6309C10.2209 5 9.24094 5.96 9.21094 8.32H11.3709C14.3109 8.32 15.6709 9.69 15.6709 12.62V14.78C18.0409 14.75 18.9909 13.77 18.9909 11.36V8.43C19.0009 5.98 18.0209 5 15.5709 5Z" fill="#292D32" ></path> </g></svg>
-                                <p class="mx-2">
-                                    Version Anterior
-                                </p>
-                            </a>
-                        </div>
+                <div class="grid grid-row self-center ">
+                    <div class="flex inline-block space-x-2 my-4">
+                        <svg width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.4 3H4.6C4.03995 3 3.75992 3 3.54601 3.10899C3.35785 3.20487 3.20487 3.35785 3.10899 3.54601C3 3.75992 3 4.03995 3 4.6V8.4C3 8.96005 3 9.24008 3.10899 9.45399C3.20487 9.64215 3.35785 9.79513 3.54601 9.89101C3.75992 10 4.03995 10 4.6 10H8.4C8.96005 10 9.24008 10 9.45399 9.89101C9.64215 9.79513 9.79513 9.64215 9.89101 9.45399C10 9.24008 10 8.96005 10 8.4V4.6C10 4.03995 10 3.75992 9.89101 3.54601C9.79513 3.35785 9.64215 3.20487 9.45399 3.10899C9.24008 3 8.96005 3 8.4 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.4 3H15.6C15.0399 3 14.7599 3 14.546 3.10899C14.3578 3.20487 14.2049 3.35785 14.109 3.54601C14 3.75992 14 4.03995 14 4.6V8.4C14 8.96005 14 9.24008 14.109 9.45399C14.2049 9.64215 14.3578 9.79513 14.546 9.89101C14.7599 10 15.0399 10 15.6 10H19.4C19.9601 10 20.2401 10 20.454 9.89101C20.6422 9.79513 20.7951 9.64215 20.891 9.45399C21 9.24008 21 8.96005 21 8.4V4.6C21 4.03995 21 3.75992 20.891 3.54601C20.7951 3.35785 20.6422 3.20487 20.454 3.10899C20.2401 3 19.9601 3 19.4 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.4 14H15.6C15.0399 14 14.7599 14 14.546 14.109C14.3578 14.2049 14.2049 14.3578 14.109 14.546C14 14.7599 14 15.0399 14 15.6V19.4C14 19.9601 14 20.2401 14.109 20.454C14.2049 20.6422 14.3578 20.7951 14.546 20.891C14.7599 21 15.0399 21 15.6 21H19.4C19.9601 21 20.2401 21 20.454 20.891C20.6422 20.7951 20.7951 20.6422 20.891 20.454C21 20.2401 21 19.9601 21 19.4V15.6C21 15.0399 21 14.7599 20.891 14.546C20.7951 14.3578 20.6422 14.2049 20.454 14.109C20.2401 14 19.9601 14 19.4 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.4 14H4.6C4.03995 14 3.75992 14 3.54601 14.109C3.35785 14.2049 3.20487 14.3578 3.10899 14.546C3 14.7599 3 15.0399 3 15.6V19.4C3 19.9601 3 20.2401 3.10899 20.454C3.20487 20.6422 3.35785 20.7951 3.54601 20.891C3.75992 21 4.03995 21 4.6 21H8.4C8.96005 21 9.24008 21 9.45399 20.891C9.64215 20.7951 9.79513 20.6422 9.89101 20.454C10 20.2401 10 19.9601 10 19.4V15.6C10 15.0399 10 14.7599 9.89101 14.546C9.79513 14.3578 9.64215 14.2049 9.45399 14.109C9.24008 14 8.96005 14 8.4 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a onclick="loadContent('pages/admin/dashboard/index.php');return false" target="_blank" class="  hover:bg-gray-100
+                         hover:text-black rounded-lg text-gray-600  font-bold  cursor-pointer text-xl" >Dashboard</a>
+                    </div>
+                    <div class="flex inline-block space-x-2 my-4">
+                        <svg width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 11V17M12 17L9 14M12 17L15 14M16 4C16.93 4 17.395 4 17.7765 4.10222C18.8117 4.37962 19.6204 5.18827 19.8978 6.22354C20 6.60504 20 7.07003 20 8V17.2C20 18.8802 20 19.7202 19.673 20.362C19.3854 20.9265 18.9265 21.3854 18.362 21.673C17.7202 22 16.8802 22 15.2 22H8.8C7.11984 22 6.27976 22 5.63803 21.673C5.07354 21.3854 4.6146 20.9265 4.32698 20.362C4 19.7202 4 18.8802 4 17.2V8C4 7.07003 4 6.60504 4.10222 6.22354C4.37962 5.18827 5.18827 4.37962 6.22354 4.10222C6.60504 4 7.07003 4 8 4M9.6 6H14.4C14.9601 6 15.2401 6 15.454 5.89101C15.6422 5.79513 15.7951 5.64215 15.891 5.45399C16 5.24008 16 4.96005 16 4.4V3.6C16 3.03995 16 2.75992 15.891 2.54601C15.7951 2.35785 15.6422 2.20487 15.454 2.10899C15.2401 2 14.9601 2 14.4 2H9.6C9.03995 2 8.75992 2 8.54601 2.10899C8.35785 2.20487 8.20487 2.35785 8.10899 2.54601C8 2.75992 8 3.03995 8 3.6V4.4C8 4.96005 8 5.24008 8.10899 5.45399C8.20487 5.64215 8.35785 5.79513 8.54601 5.89101C8.75992 6 9.03995 6 9.6 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a onclick="loadContent('pages/admin/colscopias/main.php');return false" target="_blank" class="  hover:bg-gray-100
+                         hover:text-black rounded-lg text-gray-600  font-bold  cursor-pointer text-xl" >Colposcopias</a>
+                    </div>
+                    <div class="flex inline-block space-x-2 my-4">
+                        <svg width="25px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5 11.5H14.5L13 14.5L11 8.5L9.5 11.5H8.5M11.9932 5.13581C9.9938 2.7984 6.65975 2.16964 4.15469 4.31001C1.64964 6.45038 1.29697 10.029 3.2642 12.5604C4.75009 14.4724 8.97129 18.311 10.948 20.0749C11.3114 20.3991 11.4931 20.5613 11.7058 20.6251C11.8905 20.6805 12.0958 20.6805 12.2805 20.6251C12.4932 20.5613 12.6749 20.3991 13.0383 20.0749C15.015 18.311 19.2362 14.4724 20.7221 12.5604C22.6893 10.029 22.3797 6.42787 19.8316 4.31001C17.2835 2.19216 13.9925 2.7984 11.9932 5.13581Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a onclick="loadContent('pages/admin/pacient/index.php');return false"  class="hover:bg-gray-100 hover:text-black
+                        rounded-lg text-gray-600  font-bold hoover:text-blue-500  cursor-pointer text-xl" >Pacientes</a>
+                    </div>
+                    <div class="flex inline-block space-x-2 my-4 ">
+                        <svg width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 12H18L15 21L9 3L6 12H2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a onclick="loadContent('pages/admin/medic/index.php');return false" class=" hover:bg-gray-100 hover:text-black
+                        rounded-lg text-gray-600  font-bold hoover:text-blue-500  cursor-pointer text-xl" >Medicos</a>
+                    </div>
+                    <div class="flex inline-block space-x-2 my-4 ">
+                        <svg width="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10H3M21 11.5V8.8C21 7.11984 21 6.27976 20.673 5.63803C20.3854 5.07354 19.9265 4.6146 19.362 4.32698C18.7202 4 17.8802 4 16.2 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V17.2C3 18.8802 3 19.7202 3.32698 20.362C3.6146 20.9265 4.07354 21.3854 4.63803 21.673C5.27976 22 6.11984 22 7.8 22H12.5M16 2V6M8 2V6M17.4976 15.7119C16.7978 14.9328 15.6309 14.7232 14.7541 15.4367C13.8774 16.1501 13.7539 17.343 14.4425 18.1868C15.131 19.0306 17.4976 21 17.4976 21C17.4976 21 19.8642 19.0306 20.5527 18.1868C21.2413 17.343 21.1329 16.1426 20.2411 15.4367C19.3492 14.7307 18.1974 14.9328 17.4976 15.7119Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <a onclick="loadContent('404.php');return false" class="  hover:bg-gray-100 hover:text-black
+                        rounded-lg text-gray-600  font-bold hoover:text-blue-500  cursor-pointer text-xl" >Calendario</a>
                     </div>
                 </div>
+            </nav>
+        </header>
+        <!--- TITLE--->
+
+        <div class="w-full bg-white">
+            <div class="flex bg-white p-4 border-y-2 border-gray-200 mb-5 ">
+                <div class="">
+                    <p class="text-2xl font-extrabold">Buenos Días, Dr. Alan Ortiz</p>
+                    <p class="text-md text-gray-500">Espero que tengas un bonito día porqué hoy hay 80 pacientes agendados para ti.</p>
+                </div>
+                <div>
+
+                </div>
             </div>
+
+            <div class="" id="MainContent">
+
+            </div>
+            <br>
         </div>
-    </header>
-
-    <div class="">
-        <br><br><br><br>
-
-        <div class="" id="MainContent">
-
-        </div>
-        <br><br><br><br>
     </div>
 
 
 
 
-
-    <footer class="bg-gray-800 text-white text-center py-4 fixed bottom-0 w-full">
+    <footer class="bg-gray-800 text-white text-center py-4  bottom-0 w-full">
             <p>&copy; 2024 <strong>Clinica de Salud Sexual Oportuna. </strong> Todos los derechos reservados.</p>
         </footer>
     </body>

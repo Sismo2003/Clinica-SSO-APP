@@ -10,7 +10,6 @@
             <p class="">Nuevo Medico</p>
         </a>
     </div>
-
     <div>
         <table  id="miTabla" class="display  ">
             <thead class="">
