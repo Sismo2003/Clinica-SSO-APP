@@ -1,5 +1,5 @@
-vendor/**
+www/vendor/**
 *.DS_Store
 *composer.json
 *composer.lock
-node_modules/**
+www/node_modules/**
