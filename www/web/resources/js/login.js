@@ -1,3 +1,5 @@
+
+
 function validateData(event) {
     event.preventDefault();
 
@@ -18,29 +20,32 @@ function validateData(event) {
 function sendForm() {
     const username = $('#username').val();
     const password = $('#password').val();
-    const formData = {
-        username,
-        password
-    };
+    const formData = {username, password};
     $.ajax({
         url: "services/sing_in.php",
         type: "POST",
         data: formData,
         success: function(res) {
             const ans = JSON.parse(res);
-            if (ans[0] === 0) { // Si es un error
-                if (ans[1] == 'User not found') {
-                    alert('Datos de usuario incorrectos!');
-                } else {
-                    alert('Error durante la consulta: ' + ans[1]);
-                }
-            }else{
+            console.log(ans);
+            if(ans.success) {
                 window.location = 'start.php';
-
+            }else  {
+                Swal.fire({
+                    icon: "error",
+                    title: "LOGIN DENEGADO!",
+                    text: ans.message,
+                });
             }
         },
-        error: function() {
-            alert('Inicio de sesión fallido');
+        error: function(res) {
+            const ans = JSON.parse(res);
+            console.log(ans);
+            Swal.fire({
+                icon: "error",
+                title: "ERROR 500 POR SERVIDOR",
+                text: ans.message
+            });
         }
     });
 }

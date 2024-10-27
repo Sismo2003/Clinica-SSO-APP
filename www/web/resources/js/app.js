@@ -1,5 +1,5 @@
 //Funcion para cargar contenido en el contendor principal
-var $ = require('jquery');
+
 function loadContent(url){
     $.ajax({
         url: url, // Ruta del archivo a cargar

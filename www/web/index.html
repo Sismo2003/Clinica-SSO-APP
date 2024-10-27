@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html lang="es-mx">
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Clinica SSO- Salud Sexual Oportuna</title>
     <link href="resources/output.css" rel="stylesheet">
-      <script src="resources/js/jquery-3.7.1.js"></script>
-      <script src="resources/js/jquery-3.7.1.min.map"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
-  </head>
-      <body class="bg-slate-50">
-      <div class="flex w-full justify-center content-center mt-36 py-4  ">
-          <div class="p-8 w-96 items-center border-gray-200 border-2 rounded-lg  ">
+    <link rel="icon" href="sources/logos/icono.ico" type="image/x-icon">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/chart.js/dist/chart.umd.js"></script>
+
+    <script src="../node_modules/flowbite/dist/flowbite.js"></script>
+    <script type="module" src="../node_modules/flowbite-datepicker/js/Datepicker.js"></script>
+    <script src="../node_modules/simple-datatables/dist/umd/simple-datatables.js"></script>
+
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
+
+</head>
+      <body class="bg-slate-50 ">
+      <div class="grid place-content-center  w-full  py-4 ">
+          <div class="p-8 w-96 items-center border-gray-200 border-2 rounded-lg ">
               <div class=" place-content-center flex">
                   <img class="w-2/5 " src="sources/logos/logoSSO.svg">
               </div>
               <p class="mt-6 mb-5 text-center font-semibold text-2xl" >Inicia Sesión</p>
-
               <form id="record">
                   <div class="relative">
-                      <input type="text"  id="username" name="username" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
-                      <label for="username" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg-slate-50 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Usuario</label>
+                      <input type="text"  id="username" name="username" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                      <label for="username" class="absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 origin-[0] bg-slate-50 px-2 peer-focus:px-2 peer-focus:text-blue-600  peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1">Usuario</label>
                   </div>
                   <div class="w-full">
                       <a data-tooltip-target="tooltip-left" data-tooltip-placement="left"  class="text-blue-500 text-sm mb-5 hover:text-blue-800">No sabes tu usuario?</a>
@@ -50,5 +55,5 @@
       </footer>
   </body>
 </html>
-<script src="resources/js/navToggle.js"></script>
+
 <script src="resources/js/login.js"></script>

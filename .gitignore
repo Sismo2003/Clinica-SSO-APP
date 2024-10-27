@@ -7,3 +7,5 @@ web/services/db/con.php
 .idea/Clinica-SSO.iml
 .env
 www/web/pages/admin/medic/index_copy.php
+/node_modules
+/node_modules
