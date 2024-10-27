@@ -1,0 +1,23 @@
+{
+  "name": "v2.0.0",
+  "version": "2.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "dependencies": {
+    "sweetalert2": "11.14.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sismo2003/Clinica-SSO-APP.git"
+  },
+  "author": "sismo clue",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sismo2003/Clinica-SSO-APP/issues"
+  },
+  "homepage": "https://github.com/Sismo2003/Clinica-SSO-APP#readme",
+  "description": ""
+}
